@@ -1,5 +1,8 @@
-### Elyn Leong 梁瑜铃
-https://www.instagram.com/elynleonggg/
+
+![3886888](https://user-images.githubusercontent.com/57824016/212133138-15839efa-89eb-4110-801a-a54ec0857ae7.jpg)
+
+#### “Whether you’re sad, you’re a mess, or you’ve hit rock bottom, you still have TO PLAY! That’s how people like us survive”
+― Kaori Miyazono
 
 <!--
 **LynBean/LynBean** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
