@@ -14,18 +14,8 @@ while (isAwake() && isAlive()) {
   sleep(8 * 60 * 60); // 8 hours
 
   if (health <= 0) {
-    initiateReincarnation();
+    isFreedom = true;
+    break;
   }
-}
-
-void initateReincarnation() {
-  setNewLife(
-    max_health = Double.MAX_VALUE,
-    initial_moneys = Double.MAX_VALUE,
-    wife = Malaysia.get("Elyn Leong"),
-    family = "身体健康，万事如意，步步高升，财源广进",
-    friends = "not need much, but closed friends enough",
-    love_life = "always being sweet till I die"
-  );
 }
 ```
