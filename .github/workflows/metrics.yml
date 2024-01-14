@@ -12,6 +12,7 @@ jobs:
         steps:
 
             - name: Introduction
+                if: ${{ success() || failure() }}
                 uses: lowlighter/metrics@latest
                 with:
                     filename: introduction.svg
@@ -22,6 +23,7 @@ jobs:
                     plugin_introduction_title: "Today I bought mineral water and drank it. I thought it tasted better than tap water. I don't know, but it was good."
 
             - name: General
+                if: ${{ success() || failure() }}
                 uses: lowlighter/metrics@latest
                 with:
                     filename: general.svg
@@ -35,6 +37,7 @@ jobs:
                     plugin_languages: yes
 
             - name: Entertainment
+                if: ${{ success() || failure() }}
                 uses: lowlighter/metrics@latest
                 with:
                     filename: entertainment.svg
