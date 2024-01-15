@@ -1,21 +1,12 @@
-```java
-int heath = 100;
-☕ getCoffee() { return ☕; }
+[<img align="left" width="390" alt="" src="https://gist.githubusercontent.com/LynBean/c6f39031cc866d52ade152b5e8e19c72/raw/metrics.base.svg">](#)
+[<img align="right" width="150" alt="" src="https://count.getloli.com/get/@:lynbean?theme=rule34">](#)
+[<img align="right" width="390" alt="" src="https://gist.githubusercontent.com/LynBean/c6f39031cc866d52ade152b5e8e19c72/raw/metrics.dopamine.svg">](#)
+[<img align="right" width="390" height="31" alt="" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">](#)
 
-while (isAwake() && isAlive()) {  
-  if (getCoffee() == null) {
-    health -= 20;
-  }
-  else {
-    health += 20;
-  }
-  work(12 * 60 * 60); // 12 hours
-  family(4 * 60 * 60); // 4 hours
-  sleep(8 * 60 * 60); // 8 hours
+[<img align="left" width="390" alt="" src="https://gist.githubusercontent.com/LynBean/c6f39031cc866d52ade152b5e8e19c72/raw/metrics.isocalendar.svg">](#)
+[<img align="left" width="390" alt="" src="https://gist.githubusercontent.com/LynBean/c6f39031cc866d52ade152b5e8e19c72/raw/metrics.languages.svg">](#)
+[<img align="left" width="390" alt="" src="https://gist.githubusercontent.com/LynBean/c6f39031cc866d52ade152b5e8e19c72/raw/metrics.achievements.svg">](#)
+[<img align="left" width="390" alt="" src="https://gist.githubusercontent.com/LynBean/c6f39031cc866d52ade152b5e8e19c72/raw/metrics.stars.svg">](#)
+[<img align="right" width="390" height="31" alt="" src="https://gist.githubusercontent.com/lowlighter/3c6eaedf50273adfb7a510822672f570/raw/placeholder.svg">](#)
 
-  if (health <= 0) {
-    isFreedom = true;
-    break;
-  }
-}
-```
+[<img align="right" width="390" alt="" src="https://user-images.githubusercontent.com/22963968/190084456-0e077445-abae-4355-8061-5f0830a48d6e.png">](#)
