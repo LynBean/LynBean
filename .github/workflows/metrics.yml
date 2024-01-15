@@ -10,6 +10,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Metrics.Base
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.base.svg
@@ -21,6 +22,7 @@ jobs:
                   base_indepth: yes
 
             - name: Metrics.Achievements
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.achievements.svg
@@ -33,6 +35,7 @@ jobs:
                   plugin_achievements_display: compact
 
             - name: Metrics.Activity
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.activity.svg
@@ -49,6 +52,7 @@ jobs:
                   plugin_activity_filter: all
 
             - name: Metrics.Languages
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.languages.svg
@@ -62,6 +66,7 @@ jobs:
                   plugin_languages_details: percentage, lines, bytes-size
 
             - name: Metrics.Isocalendar
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.isocalendar.svg
@@ -74,6 +79,7 @@ jobs:
                   plugin_isocalendar_duration: half-year
 
             - name: Metrics.Leetcode
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.leetcode.svg
@@ -86,6 +92,7 @@ jobs:
                   plugin_leetcode_user: ${{ secrets.LEETCODE_USER }}
 
             - name: Metrics.Notable
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.notable.svg
@@ -98,6 +105,7 @@ jobs:
                   plugin_notable_repositories: no
 
             - name: Metrics.Stars
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.stars.svg
@@ -110,6 +118,7 @@ jobs:
                   plugin_stars_limit: 4
 
             - name: Metrics.Skyline
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.skyline.svg
@@ -122,6 +131,7 @@ jobs:
                   plugin_skyline_frames: 120
 
             - name: Metrics.Dopamine
+              if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
                   filename: metrics.dopamine.svg
