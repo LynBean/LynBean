@@ -16,7 +16,7 @@ jobs:
                   filename: metrics.base.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
@@ -28,7 +28,7 @@ jobs:
                   filename: metrics.achievements.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_achievements: yes
@@ -41,7 +41,7 @@ jobs:
                   filename: metrics.activity.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_activity: yes
@@ -58,7 +58,7 @@ jobs:
                   filename: metrics.languages.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_languages: yes
@@ -72,7 +72,7 @@ jobs:
                   filename: metrics.isocalendar.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_isocalendar: yes
@@ -85,7 +85,7 @@ jobs:
                   filename: metrics.leetcode.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_leetcode: yes
@@ -98,7 +98,7 @@ jobs:
                   filename: metrics.notable.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_notable: yes
@@ -111,7 +111,7 @@ jobs:
                   filename: metrics.stars.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_stars: yes
@@ -124,7 +124,7 @@ jobs:
                   filename: metrics.skyline.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   plugin_skyline: yes
@@ -137,7 +137,7 @@ jobs:
                   filename: metrics.dopamine.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                  token: ${{ secrets.GIST_PAT }}
                   base: ""
 
                   config_order: steam, anilist, music, 16personalities
