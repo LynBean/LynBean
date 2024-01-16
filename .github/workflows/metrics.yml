@@ -220,17 +220,10 @@ jobs:
                   token: ${{ secrets.GIST_PAT }}
 
                   config_order: base.header, isocalendar, languages, achievements, stars
-                  extras_js: |
-                      $('section:not([class]):not([id])')
-                        .filter(
-                          function() {
-                            return $(this).find('.field').length === 0;
-                          }
-                        )
-                        .css('padding-top', '31px');
-
-                      $('section:contains('largeable')')
-                        .css('padding-top', '31px');
+                  extras_css: |
+                      .items-wrapper > section:not([column]) {
+                        padding-top: 31px;
+                      }
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
@@ -247,3 +240,37 @@ jobs:
 
                   plugin_stars: yes
                   plugin_stars_limit: 4
+
+            - name: Metrics.RightPanel
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.leftpanel.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
+
+                  config_order: steam, anilist, 16personalities
+                  extras_css: |
+                      .items-wrapper > section {
+                        padding-top: 31px;
+                      }
+
+                  plugin_steam: yes
+                  plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
+                  plugin_steam_user: ${{ secrets.STEAM_USER }}
+                  plugin_steam_sections: player, recently-played, most-played
+                  plugin_steam_games_limit: 1
+                  plugin_steam_recent_games_limit: 3
+                  plugin_steam_achievements_limit: 2
+                  plugin_steam_playtime_threshold: 0
+
+                  plugin_anilist: yes
+                  plugin_anilist_user: ${{ secrets.ANILIST_USER }}
+                  plugin_anilist_medias: manga
+                  plugin_anilist_sections: reading, characters
+                  plugin_anilist_limit: 5
+
+                  plugin_16personalities: yes
+                  plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
