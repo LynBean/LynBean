@@ -220,10 +220,17 @@ jobs:
                   token: ${{ secrets.GIST_PAT }}
 
                   config_order: base.header, isocalendar, languages, achievements, stars
-                  extras_css: |
-                      section:not([class]):not([id]) {
-                        padding-top: 100px;
-                      }
+                  extras_js: |
+                      $('section:not([class]):not([id])')
+                        .filter(
+                          function() {
+                            return $(this).find('.field').length === 0;
+                          }
+                        )
+                        .css('padding-top', '31px');
+
+                      $('section:contains('largeable')')
+                        .css('padding-top', '31px');
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
