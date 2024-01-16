@@ -219,12 +219,9 @@ jobs:
                   committer_gist: ${{ secrets.GIST_ID }}
                   token: ${{ secrets.GIST_PAT }}
 
-                  extras_css: |
-                      section {
-                        margin-top: 31;
-                      }
-
                   config_order: base, isocalendar, languages, achievements, stars
+                  config_padding: 0, 10 + 8%
+                  config_output: insights
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
