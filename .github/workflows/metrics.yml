@@ -219,8 +219,8 @@ jobs:
                   committer_gist: ${{ secrets.GIST_ID }}
                   token: ${{ secrets.GIST_PAT }}
 
-                  config_order: base, isocalendar, languages, achievements, stars
-                  config_padding: 0, 10 + 8%
+                  config_order: isocalendar, languages, achievements, stars
+                  config_padding: 0, 100 + 8%
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
