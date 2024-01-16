@@ -8,207 +8,222 @@ on:
 jobs:
     metrics:
         runs-on: ubuntu-latest
+
+        env:
+            plugin_achievements_display: compact
+
+            plugin_activity_limit: 5
+            plugin_activity_days: 28
+            plugin_activity_visibility: all
+            plugin_activity_timestamps: yes
+            plugin_activity_filter: all
+
+            plugin_languages_other: yes
+            plugin_languages_details: percentage, lines, bytes-size
+
+            plugin_isocalendar_duration: half-year
+
+            plugin_leetcode_user: ${{ secrets.LEETCODE_USER }}
+
+            plugin_notable_repositories: no
+
+            plugin_stars_limit: 4
+
+            plugin_topics_mode: mastered
+            plugin_topics_sort: activity
+            plugin_topics_limit: 5
+
+            plugin_skyline_frames: 60
+
+            plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
+            plugin_steam_user: ${{ secrets.STEAM_USER }}
+            plugin_steam_sections: player, recently-played, most-played
+            plugin_steam_games_limit: 1
+            plugin_steam_recent_games_limit: 3
+            plugin_steam_achievements_limit: 2
+            plugin_steam_playtime_threshold: 0
+
+            plugin_anilist_user: ${{ secrets.ANILIST_USER }}
+            plugin_anilist_medias: manga
+            plugin_anilist_sections: reading, characters
+            plugin_anilist_limit: 5
+
+            plugin_music_provider: youtube
+            plugin_music_token: ${{ secrets.YOUTUBE_COOKIE }}
+            plugin_music_user: ${{ secrets.YOUTUBE_USER }}
+            plugin_music_mode: recent
+            plugin_music_limit: 5
+
+            plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
+
         steps:
-            # - name: Metrics.Base
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.base.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
+            - name: Metrics.Base
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.base.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
 
-            #       base: header, activity, community, repositories, metadata
-            #       base_indepth: yes
+                  base: header, activity, community, repositories, metadata
+                  base_indepth: yes
 
-            # - name: Metrics.Achievements
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.achievements.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Achievements
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.achievements.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_achievements: yes
-            #       plugin_achievements_display: compact
+                  plugin_achievements: yes
 
-            # - name: Metrics.Activity
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.activity.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Activity
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.activity.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_activity: yes
-            #       plugin_activity_limit: 5
-            #       plugin_activity_days: 28
-            #       plugin_activity_visibility: all
-            #       plugin_activity_timestamps: yes
-            #       plugin_activity_filter: all
+                  plugin_activity: yes
 
-            # - name: Metrics.Languages
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.languages.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Languages
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.languages.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_languages: yes
-            #       plugin_languages_other: yes
-            #       plugin_languages_details: percentage, lines, bytes-size
+                  plugin_languages: yes
 
-            # - name: Metrics.Isocalendar
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.isocalendar.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Isocalendar
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.isocalendar.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_isocalendar: yes
-            #       plugin_isocalendar_duration: half-year
+                  plugin_isocalendar: yes
 
-            # - name: Metrics.Leetcode
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.leetcode.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Leetcode
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.leetcode.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_leetcode: yes
-            #       plugin_leetcode_user: ${{ secrets.LEETCODE_USER }}
+                  plugin_leetcode: yes
 
-            # - name: Metrics.Notable
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.notable.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Notable
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.notable.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_notable: yes
-            #       plugin_notable_repositories: no
+                  plugin_notable: yes
 
-            # - name: Metrics.Stars
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.stars.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Stars
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.stars.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_stars: yes
-            #       plugin_stars_limit: 4
+                  plugin_stars: yes
 
-            # - name: Metrics.Topics
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.topics.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Topics
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.topics.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_topics: yes
-            #       plugin_topics_mode: mastered
-            #       plugin_topics_sort: activity
-            #       plugin_topics_limit: 5
+                  plugin_topics: yes
 
-            # - name: Metrics.Skyline
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.skyline.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Skyline
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.skyline.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_skyline: yes
-            #       plugin_skyline_frames: 120
+                  plugin_skyline: yes
 
-            # - name: Metrics.Steam
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.steam.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Steam
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.steam.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_steam: yes
-            #       plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
-            #       plugin_steam_user: ${{ secrets.STEAM_USER }}
-            #       plugin_steam_sections: player, recently-played, most-played
-            #       plugin_steam_games_limit: 1
-            #       plugin_steam_recent_games_limit: 3
-            #       plugin_steam_achievements_limit: 2
-            #       plugin_steam_playtime_threshold: 0
+                  plugin_steam: yes
 
-            # - name: Metrics.Anilist
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.anilist.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.Anilist
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.anilist.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_anilist: yes
-            #       plugin_anilist_user: ${{ secrets.ANILIST_USER }}
-            #       plugin_anilist_medias: manga
-            #       plugin_anilist_sections: reading, characters
-            #       plugin_anilist_limit: 5
+                  plugin_anilist: yes
 
-            # - name: Metrics.YouTube
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.youtube.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.YouTube
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.youtube.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_music: yes
-            #       plugin_music_provider: youtube
-            #       plugin_music_token: ${{ secrets.YOUTUBE_COOKIE }}
-            #       plugin_music_user: ${{ secrets.YOUTUBE_USER }}
-            #       plugin_music_mode: recent
-            #       plugin_music_limit: 5
+                  plugin_music: yes
 
-            # - name: Metrics.16Personalities
-            #   if: ${{ success() || failure() }}
-            #   uses: lowlighter/metrics@latest
-            #   with:
-            #       filename: metrics.16personalities.svg
-            #       output_action: gist
-            #       committer_gist: ${{ secrets.GIST_ID }}
-            #       token: ${{ secrets.GIST_PAT }}
-            #       base: ""
+            - name: Metrics.16Personalities
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.16personalities.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
 
-            #       plugin_16personalities: yes
-            #       plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
+                  plugin_16personalities: yes
 
             - name: Metrics.LeftPanel
               if: ${{ success() || failure() }}
@@ -229,17 +244,9 @@ jobs:
                   base_indepth: yes
 
                   plugin_isocalendar: yes
-                  plugin_isocalendar_duration: half-year
-
                   plugin_languages: yes
-                  plugin_languages_other: yes
-                  plugin_languages_details: percentage, lines, bytes-size
-
                   plugin_achievements: yes
-                  plugin_achievements_display: compact
-
                   plugin_stars: yes
-                  plugin_stars_limit: 4
 
             - name: Metrics.RightPanel
               if: ${{ success() || failure() }}
@@ -258,19 +265,5 @@ jobs:
                       }
 
                   plugin_steam: yes
-                  plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
-                  plugin_steam_user: ${{ secrets.STEAM_USER }}
-                  plugin_steam_sections: player, recently-played, most-played
-                  plugin_steam_games_limit: 1
-                  plugin_steam_recent_games_limit: 3
-                  plugin_steam_achievements_limit: 2
-                  plugin_steam_playtime_threshold: 0
-
                   plugin_anilist: yes
-                  plugin_anilist_user: ${{ secrets.ANILIST_USER }}
-                  plugin_anilist_medias: manga
-                  plugin_anilist_sections: reading, characters
-                  plugin_anilist_limit: 5
-
                   plugin_16personalities: yes
-                  plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
