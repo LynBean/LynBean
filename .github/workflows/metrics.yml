@@ -245,7 +245,7 @@ jobs:
               if: ${{ success() || failure() }}
               uses: lowlighter/metrics@latest
               with:
-                  filename: metrics.leftpanel.svg
+                  filename: metrics.rightpanel.svg
                   output_action: gist
                   committer_gist: ${{ secrets.GIST_ID }}
                   token: ${{ secrets.GIST_PAT }}
