@@ -9,53 +9,6 @@ jobs:
     metrics:
         runs-on: ubuntu-latest
 
-        env:
-            plugin_achievements_display: compact
-
-            plugin_activity_limit: 5
-            plugin_activity_days: 28
-            plugin_activity_visibility: all
-            plugin_activity_timestamps: yes
-            plugin_activity_filter: all
-
-            plugin_languages_other: yes
-            plugin_languages_details: percentage, lines, bytes-size
-
-            plugin_isocalendar_duration: half-year
-
-            plugin_leetcode_user: ${{ secrets.LEETCODE_USER }}
-
-            plugin_notable_repositories: no
-
-            plugin_stars_limit: 4
-
-            plugin_topics_mode: mastered
-            plugin_topics_sort: activity
-            plugin_topics_limit: 5
-
-            plugin_skyline_frames: 60
-
-            plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
-            plugin_steam_user: ${{ secrets.STEAM_USER }}
-            plugin_steam_sections: player, recently-played, most-played
-            plugin_steam_games_limit: 1
-            plugin_steam_recent_games_limit: 3
-            plugin_steam_achievements_limit: 2
-            plugin_steam_playtime_threshold: 0
-
-            plugin_anilist_user: ${{ secrets.ANILIST_USER }}
-            plugin_anilist_medias: manga
-            plugin_anilist_sections: reading, characters
-            plugin_anilist_limit: 5
-
-            plugin_music_provider: youtube
-            plugin_music_token: ${{ secrets.YOUTUBE_COOKIE }}
-            plugin_music_user: ${{ secrets.YOUTUBE_USER }}
-            plugin_music_mode: recent
-            plugin_music_limit: 5
-
-            plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
-
         steps:
             - name: Metrics.Base
               if: ${{ success() || failure() }}
@@ -68,6 +21,7 @@ jobs:
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
+                  base_hireable: ${{ vars.PLUGIN_BASE_HIREABLE }}
 
             - name: Metrics.Achievements
               if: ${{ success() || failure() }}
@@ -80,6 +34,7 @@ jobs:
                   base: ""
 
                   plugin_achievements: yes
+                  plugin_achievements_display: ${{ vars.PLUGIN_ACHIEVEMENTS_DISPLAY }}
 
             - name: Metrics.Activity
               if: ${{ success() || failure() }}
@@ -92,6 +47,11 @@ jobs:
                   base: ""
 
                   plugin_activity: yes
+                  plugin_activity_limit: ${{ vars.PLUGIN_ACTIVITY_LIMIT }}
+                  plugin_activity_days: ${{ vars.PLUGIN_ACTIVITY_DAYS }}
+                  plugin_activity_visibility: ${{ vars.PLUGIN_ACTIVITY_VISIBILITY }}
+                  plugin_activity_timestamps: ${{ vars.PLUGIN_ACTIVITY_TIMESTAMPS }}
+                  plugin_activity_filter: ${{ vars.PLUGIN_ACTIVITY_FILTER }}
 
             - name: Metrics.Languages
               if: ${{ success() || failure() }}
@@ -104,6 +64,8 @@ jobs:
                   base: ""
 
                   plugin_languages: yes
+                  plugin_languages_other: ${{ vars.PLUGIN_LANGUAGES_OTHER }}
+                  plugin_languages_details: ${{ vars.PLUGIN_LANGUAGES_DETAILS }}
 
             - name: Metrics.Isocalendar
               if: ${{ success() || failure() }}
@@ -116,6 +78,7 @@ jobs:
                   base: ""
 
                   plugin_isocalendar: yes
+                  plugin_isocalendar_duration: ${{ vars.PLUGIN_ISOCALENDAR_DURATION }}
 
             - name: Metrics.Leetcode
               if: ${{ success() || failure() }}
@@ -128,6 +91,7 @@ jobs:
                   base: ""
 
                   plugin_leetcode: yes
+                  plugin_leetcode_user: ${{ secrets.LEETCODE_USER }}
 
             - name: Metrics.Notable
               if: ${{ success() || failure() }}
@@ -140,6 +104,7 @@ jobs:
                   base: ""
 
                   plugin_notable: yes
+                  plugin_notable_repositories: ${{ vars.PLUGIN_NOTABLE_REPOSITORIES }}
 
             - name: Metrics.Stars
               if: ${{ success() || failure() }}
@@ -152,6 +117,7 @@ jobs:
                   base: ""
 
                   plugin_stars: yes
+                  plugin_stars_limit: ${{ vars.PLUGIN_STARS_LIMIT }}
 
             - name: Metrics.Topics
               if: ${{ success() || failure() }}
@@ -164,6 +130,9 @@ jobs:
                   base: ""
 
                   plugin_topics: yes
+                  plugin_topics_mode: ${{ vars.PLUGIN_TOPICS_MODE }}
+                  plugin_topics_sort: ${{ vars.PLUGIN_TOPICS_SORT }}
+                  plugin_topics_limit: ${{ vars.PLUGIN_TOPICS_LIMIT }}
 
             - name: Metrics.Skyline
               if: ${{ success() || failure() }}
@@ -176,6 +145,7 @@ jobs:
                   base: ""
 
                   plugin_skyline: yes
+                  plugin_skyline_frames: ${{ vars.PLUGIN_SKYLINE_FRAMES }}
 
             - name: Metrics.Steam
               if: ${{ success() || failure() }}
@@ -188,6 +158,13 @@ jobs:
                   base: ""
 
                   plugin_steam: yes
+                  plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
+                  plugin_steam_user: ${{ secrets.STEAM_USER }}
+                  plugin_steam_sections: ${{ vars.PLUGIN_STEAM_SECTIONS }}
+                  plugin_steam_games_limit: ${{ vars.PLUGIN_STEAM_GAMES_LIMIT }}
+                  plugin_steam_recent_games_limit: ${{ vars.PLUGIN_STEAM_RECENT_GAMES_LIMIT }}
+                  plugin_steam_achievements_limit: ${{ vars.PLUGIN_STEAM_ACHIEVEMENTS_LIMIT }}
+                  plugin_steam_playtime_threshold: ${{ vars.PLUGIN_STEAM_PLAYTIME_THRESHOLD }}
 
             - name: Metrics.Anilist
               if: ${{ success() || failure() }}
@@ -200,6 +177,10 @@ jobs:
                   base: ""
 
                   plugin_anilist: yes
+                  plugin_anilist_user: ${{ secrets.ANILIST_USER }}
+                  plugin_anilist_medias: ${{ vars.PLUGIN_ANILIST_MEDIAS }}
+                  plugin_anilist_sections: ${{ vars.PLUGIN_ANILIST_SECTIONS }}
+                  plugin_anilist_limit: ${{ vars.PLUGIN_ANILIST_LIMIT }}
 
             - name: Metrics.YouTube
               if: ${{ success() || failure() }}
@@ -212,6 +193,11 @@ jobs:
                   base: ""
 
                   plugin_music: yes
+                  plugin_music_provider: ${{ vars.PLUGIN_MUSIC_PROVIDER }}
+                  plugin_music_token: ${{ secrets.YOUTUBE_COOKIE }}
+                  plugin_music_user: ${{ secrets.YOUTUBE_USER }}
+                  plugin_music_mode: ${{ vars.PLUGIN_MUSIC_MODE }}
+                  plugin_music_limit: ${{ vars.PLUGIN_MUSIC_LIMIT }}
 
             - name: Metrics.16Personalities
               if: ${{ success() || failure() }}
@@ -224,6 +210,23 @@ jobs:
                   base: ""
 
                   plugin_16personalities: yes
+                  plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
+
+            - name: Metrics.Habits
+              if: ${{ success() || failure() }}
+              uses: lowlighter/metrics@latest
+              with:
+                  filename: metrics.habits.svg
+                  output_action: gist
+                  committer_gist: ${{ secrets.GIST_ID }}
+                  token: ${{ secrets.GIST_PAT }}
+                  base: ""
+                  config_timezone: ${{ vars.CONFIG_TIMEZONE }}
+
+                  plugin_habits: yes
+                  plugin_habits_from: ${{ vars.PLUGIN_HABITS_FROM }}
+                  plugin_habits_days: ${{ vars.PLUGIN_HABITS_DAYS }}
+                  plugin_habits_charts: ${{ vars.PLUGIN_HABITS_CHARTS }}
 
             - name: Metrics.LeftPanel
               if: ${{ success() || failure() }}
@@ -234,19 +237,34 @@ jobs:
                   committer_gist: ${{ secrets.GIST_ID }}
                   token: ${{ secrets.GIST_PAT }}
 
+                  config_timezone: ${{ vars.CONFIG_TIMEZONE }}
                   config_order: base.header, isocalendar, languages, achievements, stars
                   extras_css: |
-                      .items-wrapper > section:not([column]) {
-                        padding-top: 31px;
+                      .items-wrapper > section:not(.column) {
+                        padding-top: ${{ vars.PADDING_TOP }}
                       }
 
                   base: header, activity, community, repositories, metadata
                   base_indepth: yes
+                  base_hireable: ${{ vars.PLUGIN_BASE_HIREABLE }}
 
                   plugin_isocalendar: yes
+                  plugin_isocalendar_duration: ${{ vars.PLUGIN_ISOCALENDAR_DURATION }}
+
                   plugin_languages: yes
+                  plugin_languages_other: ${{ vars.PLUGIN_LANGUAGES_OTHER }}
+                  plugin_languages_details: ${{ vars.PLUGIN_LANGUAGES_DETAILS }}
+
                   plugin_achievements: yes
+                  plugin_achievements_display: ${{ vars.PLUGIN_ACHIEVEMENTS_DISPLAY }}
+
+                  plugin_habits: yes
+                  plugin_habits_from: ${{ vars.PLUGIN_HABITS_FROM }}
+                  plugin_habits_days: ${{ vars.PLUGIN_HABITS_DAYS }}
+                  plugin_habits_charts: ${{ vars.PLUGIN_HABITS_CHARTS }}
+
                   plugin_stars: yes
+                  plugin_stars_limit: ${{ vars.PLUGIN_STARS_LIMIT }}
 
             - name: Metrics.RightPanel
               if: ${{ success() || failure() }}
@@ -258,12 +276,27 @@ jobs:
                   token: ${{ secrets.GIST_PAT }}
                   base: ""
 
+                  config_timezone: ${{ vars.CONFIG_TIMEZONE }}
                   config_order: steam, anilist, 16personalities
                   extras_css: |
                       .items-wrapper > section {
-                        padding-top: 31px;
+                        padding-top: ${{ vars.PADDING_TOP }}
                       }
 
                   plugin_steam: yes
+                  plugin_steam_token: ${{ secrets.STEAM_TOKEN }}
+                  plugin_steam_user: ${{ secrets.STEAM_USER }}
+                  plugin_steam_sections: ${{ vars.PLUGIN_STEAM_SECTIONS }}
+                  plugin_steam_games_limit: ${{ vars.PLUGIN_STEAM_GAMES_LIMIT }}
+                  plugin_steam_recent_games_limit: ${{ vars.PLUGIN_STEAM_RECENT_GAMES_LIMIT }}
+                  plugin_steam_achievements_limit: ${{ vars.PLUGIN_STEAM_ACHIEVEMENTS_LIMIT }}
+                  plugin_steam_playtime_threshold: ${{ vars.PLUGIN_STEAM_PLAYTIME_THRESHOLD }}
+
                   plugin_anilist: yes
+                  plugin_anilist_user: ${{ secrets.ANILIST_USER }}
+                  plugin_anilist_medias: ${{ vars.PLUGIN_ANILIST_MEDIAS }}
+                  plugin_anilist_sections: ${{ vars.PLUGIN_ANILIST_SECTIONS }}
+                  plugin_anilist_limit: ${{ vars.PLUGIN_ANILIST_LIMIT }}
+
                   plugin_16personalities: yes
+                  plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
