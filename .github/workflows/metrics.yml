@@ -7,7 +7,7 @@ on:
 
 jobs:
     metrics:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
 
         steps:
             - name: Metrics.Base
@@ -63,9 +63,17 @@ jobs:
                   token: ${{ secrets.GIST_PAT }}
                   base: ""
 
+                  commits_authoring: ${{ secrets.COMMITS_AUTHORING }}
+
                   plugin_languages: yes
                   plugin_languages_other: ${{ vars.PLUGIN_LANGUAGES_OTHER }}
+                  plugin_languages_sections: ${{ vars.PLUGIN_LANGUAGES_SECTIONS }}
                   plugin_languages_details: ${{ vars.PLUGIN_LANGUAGES_DETAILS }}
+                  plugin_languages_indepth: ${{ vars.PLUGIN_LANGUAGES_INDEPTH }}
+                  plugin_languages_analysis_timeout: ${{ vars.PLUGIN_LANGUAGES_ANALYSIS_TIMEOUT }}
+                  plugin_languages_analysis_timeout_repositories: ${{ vars.PLUGIN_LANGUAGES_ANALYSIS_TIMEOUT_REPOSITORIES }}
+                  plugin_languages_recent_load: ${{ vars.PLUGIN_LANGUAGES_RECENT_LOAD }}
+                  plugin_languages_recent_days: ${{ vars.PLUGIN_LANGUAGES_RECENT_DAYS }}
 
             - name: Metrics.Isocalendar
               if: ${{ success() || failure() }}
@@ -238,7 +246,7 @@ jobs:
                   token: ${{ secrets.GIST_PAT }}
 
                   config_timezone: ${{ vars.CONFIG_TIMEZONE }}
-                  config_order: base.header, isocalendar, languages, achievements, stars
+                  config_order: base.header, isocalendar, languages, achievements, stars, habits
                   extras_css: |
                       .items-wrapper > section:not(.column) {
                         padding-top: ${{ vars.PADDING_TOP }}
@@ -251,20 +259,28 @@ jobs:
                   plugin_isocalendar: yes
                   plugin_isocalendar_duration: ${{ vars.PLUGIN_ISOCALENDAR_DURATION }}
 
+                  commits_authoring: ${{ secrets.COMMITS_AUTHORING }}
+
                   plugin_languages: yes
                   plugin_languages_other: ${{ vars.PLUGIN_LANGUAGES_OTHER }}
+                  plugin_languages_sections: ${{ vars.PLUGIN_LANGUAGES_SECTIONS }}
                   plugin_languages_details: ${{ vars.PLUGIN_LANGUAGES_DETAILS }}
+                  plugin_languages_indepth: ${{ vars.PLUGIN_LANGUAGES_INDEPTH }}
+                  plugin_languages_analysis_timeout: ${{ vars.PLUGIN_LANGUAGES_ANALYSIS_TIMEOUT }}
+                  plugin_languages_analysis_timeout_repositories: ${{ vars.PLUGIN_LANGUAGES_ANALYSIS_TIMEOUT_REPOSITORIES }}
+                  plugin_languages_recent_load: ${{ vars.PLUGIN_LANGUAGES_RECENT_LOAD }}
+                  plugin_languages_recent_days: ${{ vars.PLUGIN_LANGUAGES_RECENT_DAYS }}
 
                   plugin_achievements: yes
                   plugin_achievements_display: ${{ vars.PLUGIN_ACHIEVEMENTS_DISPLAY }}
+
+                  plugin_stars: yes
+                  plugin_stars_limit: ${{ vars.PLUGIN_STARS_LIMIT }}
 
                   plugin_habits: yes
                   plugin_habits_from: ${{ vars.PLUGIN_HABITS_FROM }}
                   plugin_habits_days: ${{ vars.PLUGIN_HABITS_DAYS }}
                   plugin_habits_charts: ${{ vars.PLUGIN_HABITS_CHARTS }}
-
-                  plugin_stars: yes
-                  plugin_stars_limit: ${{ vars.PLUGIN_STARS_LIMIT }}
 
             - name: Metrics.RightPanel
               if: ${{ success() || failure() }}
