@@ -28,6 +28,8 @@ jobs:
 
                   commits_authoring: ${{ secrets.COMMITS_AUTHORING }}
 
+                  repositories: ${{ vars.REPOSITORIES }}
+                  repositories_forks: ${{ vars.REPOSITORIES_FORKS }}
                   repositories_affiliations: ${{ secrets.REPOSITORIES_AFFILIATIONS }}
 
                   base: header, activity, community, repositories, metadata
