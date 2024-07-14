@@ -26,7 +26,7 @@ jobs:
                         padding-top: ${{ vars.PADDING_TOP }}
                       }
 
-                  commits_authoring: ${{ secrets.COMMITS_AUTHORING }}
+                  # commits_authoring: ${{ secrets.COMMITS_AUTHORING }}
 
                   repositories: ${{ vars.REPOSITORIES }}
                   repositories_forks: ${{ vars.REPOSITORIES_FORKS }}
@@ -46,7 +46,7 @@ jobs:
                   plugin_languages_sections: ${{ vars.PLUGIN_LANGUAGES_SECTIONS }}
                   plugin_languages_details: ${{ vars.PLUGIN_LANGUAGES_DETAILS }}
                   plugin_languages_indepth: ${{ vars.PLUGIN_LANGUAGES_INDEPTH }}
-                  plugin_languages_indepth_custom: ${{ secrets.PLUGIN_LANGUAGES_INDEPTH_CUSTOM }}
+                  # plugin_languages_indepth_custom: ${{ secrets.PLUGIN_LANGUAGES_INDEPTH_CUSTOM }}
                   plugin_languages_analysis_timeout: ${{ vars.PLUGIN_LANGUAGES_ANALYSIS_TIMEOUT }}
                   plugin_languages_analysis_timeout_repositories: ${{ vars.PLUGIN_LANGUAGES_ANALYSIS_TIMEOUT_REPOSITORIES }}
                   plugin_languages_recent_load: ${{ vars.PLUGIN_LANGUAGES_RECENT_LOAD }}
