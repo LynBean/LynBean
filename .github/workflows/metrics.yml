@@ -12,7 +12,7 @@ jobs:
         steps:
             - name: Metrics.LeftPanel
               if: ${{ success() || failure() }}
-              uses: lowlighter/metrics@latest
+              uses: lowlighter/metrics@master
               with:
                   filename: metrics.leftpanel.svg
                   output_action: gist
@@ -65,7 +65,7 @@ jobs:
 
             - name: Metrics.RightPanel
               if: ${{ success() || failure() }}
-              uses: lowlighter/metrics@latest
+              uses: lowlighter/metrics@master
               with:
                   filename: metrics.rightpanel.svg
                   output_action: gist
@@ -74,7 +74,7 @@ jobs:
                   base: ""
 
                   config_timezone: ${{ vars.CONFIG_TIMEZONE }}
-                  config_order: steam, anilist, 16personalities
+                  config_order: steam, anilist
                   extras_css: |
                       .items-wrapper > section {
                         padding-top: ${{ vars.PADDING_TOP }}
@@ -95,5 +95,5 @@ jobs:
                   plugin_anilist_sections: ${{ vars.PLUGIN_ANILIST_SECTIONS }}
                   plugin_anilist_limit: ${{ vars.PLUGIN_ANILIST_LIMIT }}
 
-                  plugin_16personalities: yes
+                  plugin_16personalities: no
                   plugin_16personalities_url: https://www.16personalities.com/profiles/${{ secrets.PERSONALITIES_USER }}
